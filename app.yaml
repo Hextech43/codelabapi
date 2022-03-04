@@ -1,0 +1,98 @@
+swagger: "2.0"
+info:
+  title:  a simple api
+  description:  	my first api
+  contact:
+    email:  adeniranesther073@gmail.com
+    url:  dev
+schemes:  [http,https]
+paths:
+  /:
+    get:
+      summary:  mysummary
+      description:  my get method
+      responses:
+        200:  sucess
+        schema:
+          type:string
+  /user:
+    get:
+      summary:  my summary
+      description:  my get all method
+      responses:
+        200:
+          description:  success
+          schema:
+           type: array
+            items:
+             type: object
+            properties:
+              id:
+               type: integer
+               name:
+                type: string
+  /addUser:
+    post:
+      summary: my summary
+      description: "my post all method"
+      produces:
+        - aplication/json
+      consume:
+        - aplication/json
+
+
+
+      parameters:
+        - in: body
+          name: create
+
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+
+      responses:
+        201:
+          description: success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+/user/{userId}:
+    get:
+      summary: my summary
+      description: "my post all method"
+
+      parameters:
+          - name: userId
+            in: path
+            require: true
+            schema:
+              type: integer
+
+
+      responses:
+        200:
+          description: success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+    
+
+
+
+
+
+
